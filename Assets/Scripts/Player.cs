@@ -6,6 +6,11 @@ public class Player : MonoBehaviour
 {
     Rigidbody rb;
     public float moveSpeed = 1f;
+    private int forUpdate = 0;
+    private int forFixedUpdate = 0;
+    private bool UpdateOn = true;
+    private bool FixedUpdateOn = true;
+    private bool LateUpdateOn = true;
     // Start is called before the first frame update
 
     void Awake()
@@ -24,8 +29,40 @@ public class Player : MonoBehaviour
         Debug.Log("from OnEnable");
     }
     // Update is called once per frame
+
+    void OnDisable()
+    {
+        Debug.Log("Disable is called");
+    }
+
+    void FixedUpdate()
+    {
+        if (FixedUpdateOn)
+        {
+            FixedUpdateOn = false;
+            Debug.Log("from FixedUpdate");
+        }
+        forFixedUpdate++;
+        //Debug.Log("from FixedUpdate");
+    }
+
+    void LateUpdate()
+    {
+        if (LateUpdateOn)
+        {
+            LateUpdateOn = false;
+            Debug.Log("from LateUpdate");
+        }
+    }
+
     void Update()
     {
+        if (UpdateOn)
+        {
+            UpdateOn = false;
+            Debug.Log("from Update");
+        }
+        forUpdate++;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //Destroy(gameObject);
@@ -56,6 +93,8 @@ public class Player : MonoBehaviour
     void OnDestroy()
     {
         // is automatically called when we destroy the gameObject
+        Debug.Log("UPDATE VARIABLE : " + forUpdate);
+        Debug.Log("FIXED UPDATE VARIABLE : " + forFixedUpdate);
         Debug.Log("BYE");
     }
 }
