@@ -7,11 +7,22 @@ public class Player : MonoBehaviour
     Rigidbody rb;
     public float moveSpeed = 1f;
     // Start is called before the first frame update
+
+    void Awake()
+    {
+        Debug.Log("Awake() called for " + gameObject.name);
+        Debug.Log("Awake() called for " + gameObject.tag);
+        //tag and name are diff
+    }
     void Start()
     {
+        Debug.Log("from Start");
         rb = GetComponent<Rigidbody>();
     }
-
+    void OnEnable()
+    {
+        Debug.Log("from OnEnable");
+    }
     // Update is called once per frame
     void Update()
     {
@@ -37,5 +48,14 @@ public class Player : MonoBehaviour
         {
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -moveSpeed);
         }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Destroy(gameObject);
+        }
+    }
+    void OnDestroy()
+    {
+        // is automatically called when we destroy the gameObject
+        Debug.Log("BYE");
     }
 }
