@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Restart : MonoBehaviour
 {
+    private int counter = 0;
     private Vector3 initialPlayerPosition;
     private GameObject player;
     // Start is called before the first frame update
