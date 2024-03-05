@@ -355,6 +355,7 @@
 "Assets/Scripts/Cube.cs"
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/Restart.cs"
+"Assets/Scripts/StartButton.cs"
 "Assets/Scripts/TryAgain.cs"
 -langversion:9.0
 
