@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+
+using UnityEngine.SceneManagement;
+
 using UnityEngine;
 
 public class Restart : MonoBehaviour
@@ -18,8 +21,17 @@ public class Restart : MonoBehaviour
 
     public void RestartPlayerPosition()
     {
-        player.transform.position = initialPlayerPosition;
-        Debug.Log("Player restarted");
+        counter++;
+        if (counter > 2)
+        {
+            counter = 0;
+            SceneManager.LoadScene("GameOverScene");
+        }
+        else
+        {
+            player.transform.position = initialPlayerPosition;
+            Debug.Log("Player restarted");
+        }
     }
     // Update is called once per frame
     void Update()
