@@ -21,6 +21,6 @@ public class TryAgain : MonoBehaviour
 
     public void TryItAgain()
     {
-        SceneManager.LoadScene("Settings");
+        SceneManager.LoadScene("Menu");
     }
 }
