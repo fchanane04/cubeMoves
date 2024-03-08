@@ -5,6 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody rb;
+
+    private int jumpCount = 0;
+
     public float moveSpeed = 1f;
     private int forUpdate = 0;
     private int forFixedUpdate = 0;
@@ -12,6 +15,11 @@ public class Player : MonoBehaviour
     private bool FixedUpdateOn = true;
     private bool LateUpdateOn = true;
     // Start is called before the first frame update
+
+    public int GetJumpCount()
+    {
+        return jumpCount;
+    }
 
     void Awake()
     {
@@ -67,6 +75,7 @@ public class Player : MonoBehaviour
         {
             //Destroy(gameObject);
             rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+            jumpCount++;
         }
          //if i added some xf it means => seconds to wait
         if (Input.GetKeyDown(KeyCode.LeftArrow))
