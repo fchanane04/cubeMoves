@@ -357,6 +357,7 @@
 "Assets/Scripts/PlayHover.cs"
 "Assets/Scripts/Restart.cs"
 "Assets/Scripts/StartButton.cs"
+"Assets/Scripts/StartGame.cs"
 "Assets/Scripts/TryAgain.cs"
 -langversion:9.0
 
